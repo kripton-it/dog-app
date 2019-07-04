@@ -6,8 +6,8 @@ class Home extends Component {
     return (
       <div className="Home">
         <h1 className="display-1 text-center">Dog List</h1>
-        <div class="container">
-          <div class="row">
+        <div className="container">
+          <div className="row">
             {this.props.dogs.map(({name, src}) => (
               <div className="Home-dog col-md-6 col-lg-4 text-center" key={name}>
                 <img src={src} alt={name}/>

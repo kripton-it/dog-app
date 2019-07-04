@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import whiskey from "./imgs/whiskey.jpg";
@@ -17,8 +16,8 @@ function App({ dogs }) {
     return <Dog {...props} dog={targetDog} />;
   };
   return (
-    <div className="App">
-      <Navbar />
+    <div>
+      <Navbar dogs={dogs.map(({name}) => name)} />
       <Switch>
         <Route
           exact
