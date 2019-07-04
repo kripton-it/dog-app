@@ -1,36 +1,17 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
 
 import whiskey from "./imgs/whiskey.jpg";
 import hazel from "./imgs/hazel.jpg";
 import tubby from "./imgs/tubby.jpg";
 
-import Home from "./Home";
-import Dog from "./Dog";
 import Navbar from "./Navbar";
+import Routes from "./Routes";
 
 function App({ dogs }) {
-  const getDog = (props) => {
-    const name = props.match.params.name;
-    const targetDog = dogs.find(dog => dog.name.toLowerCase() === name.toLowerCase());
-    return <Dog {...props} dog={targetDog} />;
-  };
   return (
     <div>
       <Navbar dogs={dogs.map(({name}) => name)} />
-      <Switch>
-        <Route
-          exact
-          path="/dogs/:name"
-          render={getDog}
-        />
-        <Route
-          exact
-          path="/dogs"
-          render={routeProps => <Home {...routeProps} dogs={dogs} />}
-        />
-        <Redirect to="/dogs" />
-      </Switch>
+      <Routes dogs={dogs} />
     </div>
   );
 }
