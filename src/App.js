@@ -11,7 +11,9 @@ function App({ dogs }) {
   return (
     <div>
       <Navbar dogs={dogs.map(({name}) => name)} />
-      <Routes dogs={dogs} />
+      <div className="container">
+        <Routes dogs={dogs} />
+      </div>
     </div>
   );
 }

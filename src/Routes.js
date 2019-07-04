@@ -8,7 +8,7 @@ class Routes extends Component {
     const getDog = (props) => {
       const name = props.match.params.name;
       const targetDog = this.props.dogs.find(dog => dog.name.toLowerCase() === name.toLowerCase());
-      return <Dog {...props} dog={targetDog} />;
+      return targetDog ? <Dog {...props} dog={targetDog} /> : <Redirect to="/dogs" />;
     };
 
     return (
